@@ -26,9 +26,14 @@ public class Conta {
     }
 
     public void transfer(String name ,double valor, Usuario user){
-       this.saldo -= valor;
+        if (valor > this.saldo){
+            System.out.println("Saldo insuficiente");
+        }else{
 
-       user.getContaObj().saldo+= valor;
+           this.saldo -= valor;
+
+           user.getContaObj().saldo+= valor;
+        }
     }
 
     public void deposito(double valor){
